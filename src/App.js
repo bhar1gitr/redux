@@ -8,6 +8,9 @@ const App = () => {
 
   return (
     <div>
+
+      <h1>Counter</h1>
+
       <div>
         <button
           aria-label="Increment value"
