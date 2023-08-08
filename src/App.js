@@ -1,29 +1,30 @@
-import './App.css';
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment } from './Features/Counter/counters'
 
-function App() {
+const App = () => {
+  const count = useSelector(state => state.counter.value)
+  const dispatch = useDispatch()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+    <div>
+      <div>
+        <button
+          aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <span>{count}</span>
+        <button
+          aria-label="Decrement value"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
